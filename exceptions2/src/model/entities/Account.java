@@ -48,16 +48,19 @@ public class Account {
 		this.balance += amount;
 	}
 	
-	public void withdraw(Double amount) throws MyException {
+	public void withdraw(Double amount) {
+		// se caso der excecao no validateWithdraw o sistema vai parar
+		// e nao vai executar o this.balance -= amount; 
+		validateWithdraw(amount);
+		this.balance -= amount;
+	}
+
+	private void validateWithdraw(double amount) {
 		if (amount > getBalance()) {
 			throw new MyException("Not enough balance");
 		}
-		else if (amount > getWithDrawLimit()) {
+		if (amount > getWithDrawLimit()) {
 			throw new MyException("The amount exceeds withdraw limit");
 		}
-		else {
-			this.balance -= amount;
-		}
 	}
-	
 }
