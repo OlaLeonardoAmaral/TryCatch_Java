@@ -1,0 +1,12 @@
+package application;
+
+public class Program {
+
+	public static void main(String[] args) {
+
+		String result = (2 <= 1) ? "deu bom" : "nao deu"; 
+
+		System.out.println(result);
+	}
+
+}
